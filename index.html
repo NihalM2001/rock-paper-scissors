@@ -12,11 +12,41 @@
         let computerSelection=getComputerChoice(choice);
         console.log(computerSelection);
 
-        function getComputerChoice()
+        function getComputerChoice() // function that creates the choice of computer
         {
             choice= choice[Math.floor(Math.random()*choice.length)];
             return choice;
         }
-    </script>`  
+
+        let playerSelection=prompt("Enter your choice (choices are 'Rock','Paper' or 'scissors'") //inputs choice from player 
+        let winner=playGame(computerSelection,playerSelection);
+
+        function playGame(computerSelection,playerSelection) //function to play the game
+        {
+            if(computerSelection==='rock' && playerSelection==='scissors' || computerSelection==='paper' && playerSelection==='rock' || computerSelection==='scissors' && playerSelection==='paper')
+            {
+                console.log("computer wins.. you lose suckers.. hahaha");
+            }
+            else if(computerSelection===playerSelection)
+            {
+                console.log("Tie..... play again")
+            }
+            else if((computerSelection==='scissors' && playerSelection==='rock' || computerSelection==='rock' && playerSelection==='paper' || computerSelection==='paper' && playerSelection==='scissors'))
+            {
+                console.log("Player wins!!! yaaaaayyyyy.....");
+            }
+            else if(playerSelection!=='rock' || playerSelection!=='paper' || playerSelection!=='scissors')
+            {
+                console.log("invalid input");
+            }
+            else
+            {
+                console.log("Play again");
+            }
+        }
+
+
+
+    </script>
 </body>
 </html>
