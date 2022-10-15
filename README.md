@@ -1,2 +1,2 @@
 # rock-paper-scissors
-A rock paper scissors game played against the computer
+Let's fight against the computer with a game of Rock Paper and Scissors.. It's gonna be fun!! 
