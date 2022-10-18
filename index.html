@@ -59,9 +59,9 @@
             {
                 choice= ["rock","paper","scissors"];   
                 var computerSelection=getComputerChoice(choice);
-                console.log(computerSelection);
                 var playerSelection=prompt(`Enter your choice... you have ${i} chances (choices are 'Rock','Paper' or 'scissors')`) //inputs choice from player
- 
+                playerSelection=playerSelection.toLowerCase();
+
                 let winner=playGame(computerSelection,playerSelection);  
                 console.log(winner);         
             }
