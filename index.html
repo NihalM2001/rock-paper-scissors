@@ -33,7 +33,7 @@
             }
             else if((computerSelection==='scissors' && playerSelection==='rock' || computerSelection==='rock' && playerSelection==='paper' || computerSelection==='paper' && playerSelection==='scissors')) //When the Player wins
             {
-                winner=` ${playerSelection} beats ${computerSelection}... Yaaaaaayyyy!!! You win.... `;
+                winner=`Computer Chose ${computerSelection}, You chose ${playerSelection}.... ${playerSelection} beats ${computerSelection}... Yaaaaaayyyy!!! You win.... `;
                 return winner;
             }
             else if(playerSelection!=='rock' || playerSelection!=='paper' || playerSelection!=='scissors') //When invalid input is entered
