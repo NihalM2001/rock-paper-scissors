@@ -21,27 +21,27 @@
         function playGame(computerSelection,playerSelection) //function to play the game
         {
             var winner;
-            if(computerSelection==='rock' && playerSelection==='scissors' || computerSelection==='paper' && playerSelection==='rock' || computerSelection==='scissors' && playerSelection==='paper')
+            if(computerSelection==='rock' && playerSelection==='scissors' || computerSelection==='paper' && playerSelection==='rock' || computerSelection==='scissors' && playerSelection==='paper') //When computer wins
             {
                 winner=` Computer Chose ${computerSelection}, You chose ${playerSelection}.... ${computerSelection} beats ${playerSelection}... computer wins.. you lose suckers.. hahaha`;
                 return winner;
             }
-            else if(computerSelection===playerSelection)
+            else if(computerSelection===playerSelection) //When both values are the same
             {
                 winner=` Computer Chose ${computerSelection}, You chose ${playerSelection}..... It's a Tie..... play again`;
                 return winner;
             }
-            else if((computerSelection==='scissors' && playerSelection==='rock' || computerSelection==='rock' && playerSelection==='paper' || computerSelection==='paper' && playerSelection==='scissors'))
+            else if((computerSelection==='scissors' && playerSelection==='rock' || computerSelection==='rock' && playerSelection==='paper' || computerSelection==='paper' && playerSelection==='scissors')) //When the Player wins
             {
                 winner=` ${playerSelection} beats ${computerSelection}... Yaaaaaayyyy!!! You win.... `;
                 return winner;
             }
-            else if(playerSelection!=='rock' || playerSelection!=='paper' || playerSelection!=='scissors')
+            else if(playerSelection!=='rock' || playerSelection!=='paper' || playerSelection!=='scissors') //When invalid input is entered
             {
                 winner=` Ivalid Input... Enter the correct action`;
                 return winner;
             }
-            else
+            else //When neither the computer nor the player wins
             {
                 winner=`Computer Chose ${computerSelection}, You chose ${playerSelection}..... Time to go again...`;
                 return winner;
@@ -55,7 +55,7 @@
                 choice= ["rock","paper","scissors"];   
                 var computerSelection=getComputerChoice(choice);
                 var playerSelection=prompt(`Enter your choice... you have ${i} chances (choices are 'Rock','Paper' or 'scissors')`) //inputs choice from player
-                playerSelection=playerSelection.toLowerCase();
+                playerSelection=playerSelection.toLowerCase(); //changes the user input into lowercase
                 console.log(`Your Selection is: ${playerSelection}`);
 
                 let winner=playGame(computerSelection,playerSelection);  
