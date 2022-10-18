@@ -23,31 +23,26 @@
             var winner;
             if(computerSelection==='rock' && playerSelection==='scissors' || computerSelection==='paper' && playerSelection==='rock' || computerSelection==='scissors' && playerSelection==='paper')
             {
-                console.log("computer wins.. you lose suckers.. hahaha");
                 winner=` Computer Chose ${computerSelection}, You chose ${playerSelection}.... ${computerSelection} beats ${playerSelection}... computer wins.. you lose suckers.. hahaha`;
                 return winner;
             }
             else if(computerSelection===playerSelection)
             {
-                console.log("Tie..... play again");
                 winner=` Computer Chose ${computerSelection}, You chose ${playerSelection}..... It's a Tie..... play again`;
                 return winner;
             }
             else if((computerSelection==='scissors' && playerSelection==='rock' || computerSelection==='rock' && playerSelection==='paper' || computerSelection==='paper' && playerSelection==='scissors'))
             {
-                console.log("Player wins!!! yaaaaayyyyy.....");
                 winner=` ${playerSelection} beats ${computerSelection}... Yaaaaaayyyy!!! You win.... `;
                 return winner;
             }
             else if(playerSelection!=='rock' || playerSelection!=='paper' || playerSelection!=='scissors')
             {
-                console.log("invalid input");
                 winner=` Ivalid Input... Enter the correct action`;
                 return winner;
             }
             else
             {
-                console.log("Play again");
                 winner=`Computer Chose ${computerSelection}, You chose ${playerSelection}..... Time to go again...`;
                 return winner;
             }
@@ -61,6 +56,7 @@
                 var computerSelection=getComputerChoice(choice);
                 var playerSelection=prompt(`Enter your choice... you have ${i} chances (choices are 'Rock','Paper' or 'scissors')`) //inputs choice from player
                 playerSelection=playerSelection.toLowerCase();
+                console.log(`Your Selection is: ${playerSelection}`);
 
                 let winner=playGame(computerSelection,playerSelection);  
                 console.log(winner);         
