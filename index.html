@@ -8,9 +8,8 @@
 </head>
 <body>
     <script>
-        let choice= ["rock","paper","scissors"];
-        let computerSelection=getComputerChoice(choice);
-        console.log(computerSelection);
+        var choice;
+        game();
 
         function getComputerChoice() // function that creates the choice of computer
         {
@@ -18,13 +17,10 @@
             return choice;
         }
 
-        let playerSelection=prompt("Enter your choice (choices are 'Rock','Paper' or 'scissors'") //inputs choice from player 
-        let winner=playGame(computerSelection,playerSelection);
-        console.log(winner);
 
         function playGame(computerSelection,playerSelection) //function to play the game
         {
-            let winner;
+            var winner;
             if(computerSelection==='rock' && playerSelection==='scissors' || computerSelection==='paper' && playerSelection==='rock' || computerSelection==='scissors' && playerSelection==='paper')
             {
                 console.log("computer wins.. you lose suckers.. hahaha");
@@ -40,7 +36,7 @@
             else if((computerSelection==='scissors' && playerSelection==='rock' || computerSelection==='rock' && playerSelection==='paper' || computerSelection==='paper' && playerSelection==='scissors'))
             {
                 console.log("Player wins!!! yaaaaayyyyy.....");
-                winner=` ${playerSelection} beats ${computerSelection}... Yaaaaaayyyy!!! You win.... y`;
+                winner=` ${playerSelection} beats ${computerSelection}... Yaaaaaayyyy!!! You win.... `;
                 return winner;
             }
             else if(playerSelection!=='rock' || playerSelection!=='paper' || playerSelection!=='scissors')
@@ -57,8 +53,19 @@
             }
         }
 
-
-
+        function game()
+        {
+            for(var i=5;i>=1;i--)
+            {
+                choice= ["rock","paper","scissors"];   
+                var computerSelection=getComputerChoice(choice);
+                console.log(computerSelection);
+                var playerSelection=prompt(`Enter your choice... you have ${i} chances (choices are 'Rock','Paper' or 'scissors')`) //inputs choice from player
+ 
+                let winner=playGame(computerSelection,playerSelection);  
+                console.log(winner);         
+            }
+        }
     </script>
 </body>
 </html>
