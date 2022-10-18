@@ -8,7 +8,7 @@
 </head>
 <body>
     <script>
-        var choice;
+        let choice;
         game();
 
         function getComputerChoice() // function that creates the choice of computer
@@ -20,7 +20,7 @@
 
         function playGame(computerSelection,playerSelection) //function to play the game
         {
-            var winner;
+            let winner;
             if(computerSelection==='rock' && playerSelection==='scissors' || computerSelection==='paper' && playerSelection==='rock' || computerSelection==='scissors' && playerSelection==='paper') //When computer wins
             {
                 winner=` Computer Chose ${computerSelection}, You chose ${playerSelection}.... ${computerSelection} beats ${playerSelection}... computer wins.. you lose suckers.. hahaha`;
@@ -50,11 +50,11 @@
 
         function game()
         {
-            for(var i=5;i>=1;i--)
+            for(let i=5;i>=1;i--)
             {
                 choice= ["rock","paper","scissors"];   
-                var computerSelection=getComputerChoice(choice);
-                var playerSelection=prompt(`Enter your choice... you have ${i} chances (choices are 'Rock','Paper' or 'scissors')`) //inputs choice from player
+                let computerSelection=getComputerChoice(choice);
+                let playerSelection=prompt(`Enter your choice... you have ${i} chances (choices are 'Rock','Paper' or 'scissors')`) //inputs choice from player
                 playerSelection=playerSelection.toLowerCase(); //changes the user input into lowercase
                 console.log(`Your Selection is: ${playerSelection}`);
 
