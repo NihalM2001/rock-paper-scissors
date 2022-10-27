@@ -7,6 +7,14 @@
     <title>Document</title>
 </head>
 <body>
+        <button id="rock" value="rock">ROCK</button>
+        <button id="paper" value="paper">PAPER</button>
+        <button id="scissors" value="scissors">SCISSORS</button>
+   
+        <div id="result">
+            
+        </div>
+
     <script>
         let choice;
         game();
@@ -18,49 +26,45 @@
         }
 
 
-        function playGame(computerSelection,playerSelection) //function to play the game
+        function playGame(playerSelection) //function to play the game
         {
-            let winner;
+            choice= ["rock","paper","scissors"];   
+            let computerSelection=getComputerChoice(choice);
+            let result;
             if(computerSelection==='rock' && playerSelection==='scissors' || computerSelection==='paper' && playerSelection==='rock' || computerSelection==='scissors' && playerSelection==='paper') //When computer wins
             {
-                winner=` Computer Chose ${computerSelection}, You chose ${playerSelection}.... ${computerSelection} beats ${playerSelection}... computer wins.. you lose suckers.. hahaha`;
-                return winner;
+                result=` Computer Chose ${computerSelection}, You chose ${playerSelection}.... ${computerSelection} beats ${playerSelection}... computer wins.. you lose suckers.. hahaha`;
+                document.getElementById('result').innerHTML=`${result}`;
             }
             else if(computerSelection===playerSelection) //When both values are the same
             {
-                winner=` Computer Chose ${computerSelection}, You chose ${playerSelection}..... It's a Tie..... play again`;
-                return winner;
+                result=` Computer Chose ${computerSelection}, You chose ${playerSelection}..... It's a Tie..... play again`;
+                 document.getElementById('result').innerHTML=`${result}`;
             }
             else if((computerSelection==='scissors' && playerSelection==='rock' || computerSelection==='rock' && playerSelection==='paper' || computerSelection==='paper' && playerSelection==='scissors')) //When the Player wins
             {
-                winner=`Computer Chose ${computerSelection}, You chose ${playerSelection}.... ${playerSelection} beats ${computerSelection}... Yaaaaaayyyy!!! You win.... `;
-                return winner;
+                result=`Computer Chose ${computerSelection}, You chose ${playerSelection}.... ${playerSelection} beats ${computerSelection}... Yaaaaaayyyy!!! You win.... `;
+                 document.getElementById('result').innerHTML=`${result}`;
             }
             else if(playerSelection!=='rock' || playerSelection!=='paper' || playerSelection!=='scissors') //When invalid input is entered
             {
-                winner=` Ivalid Input... Enter the correct action`;
-                return winner;
+                result=` Ivalid Input... Enter the correct action`;
+                 document.getElementById('result').innerHTML=`${result}`;
             }
             else //When neither the computer nor the player wins
             {
-                winner=`Computer Chose ${computerSelection}, You chose ${playerSelection}..... Time to go again...`;
-                return winner;
+                result=`Computer Chose ${computerSelection}, You chose ${playerSelection}..... Time to go again...`;
+                 document.getElementById('result').innerHTML=`${result}`;
             }
         }
 
         function game()
         {
-            for(let i=5;i>=1;i--)
-            {
-                choice= ["rock","paper","scissors"];   
-                let computerSelection=getComputerChoice(choice);
-                let playerSelection=prompt(`Enter your choice... you have ${i} chances (choices are 'Rock','Paper' or 'scissors')`) //inputs choice from player
-                playerSelection=playerSelection.toLowerCase(); //changes the user input into lowercase
-                console.log(`Your Selection is: ${playerSelection}`);
+            let rock=document.getElementById("rock").addEventListener('click', function (){ playGame('rock'); });
+            let paper=document.getElementById("paper").addEventListener('click', function (){ playGame('paper'); });
+            let scissors=document.getElementById("scissors").addEventListener('click', function (){ playGame('scissors'); });
 
-                let winner=playGame(computerSelection,playerSelection);  
-                console.log(winner);         
-            }
+
         }
     </script>
 </body>
