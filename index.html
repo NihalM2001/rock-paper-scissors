@@ -1,19 +1,33 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
 </head>
+
 <body>
-        <button id="rock" value="rock">ROCK</button>
-        <button id="paper" value="paper">PAPER</button>
-        <button id="scissors" value="scissors">SCISSORS</button>
-   
-        <div id="result">
-            
+    <div id="container">
+
+        <div id="heading">
+            <h1>Rock Paper and Scissors</h1>
         </div>
+
+        <div id="action">
+            <h3>Choose you action</h4>
+        </div>
+
+        <div id="buttons">
+            <button id="rock" value="rock">ROCK</button>
+            <button id="paper" value="paper">PAPER</button>
+            <button id="scissors" value="scissors">SCISSORS</button>
+
+            <p id="result"></p>
+        </div>
+    </div>
+
 
     <script>
         let choice;
@@ -21,51 +35,57 @@
 
         function getComputerChoice() // function that creates the choice of computer
         {
-            choice= choice[Math.floor(Math.random()*choice.length)];
+            choice = choice[Math.floor(Math.random() * choice.length)];
             return choice;
         }
 
 
         function playGame(playerSelection) //function to play the game
         {
-            choice= ["rock","paper","scissors"];   
-            let computerSelection=getComputerChoice(choice);
+            choice = ["rock", "paper", "scissors"];
+            let computerSelection = getComputerChoice(choice);
             let result;
-            if(computerSelection==='rock' && playerSelection==='scissors' || computerSelection==='paper' && playerSelection==='rock' || computerSelection==='scissors' && playerSelection==='paper') //When computer wins
+            if (computerSelection === 'rock' && playerSelection === 'scissors' || computerSelection === 'paper' && playerSelection === 'rock' || computerSelection === 'scissors' && playerSelection === 'paper') //When computer wins
             {
-                result=` Computer Chose ${computerSelection}, You chose ${playerSelection}.... ${computerSelection} beats ${playerSelection}... computer wins.. you lose suckers.. hahaha`;
-                document.getElementById('result').innerHTML=`${result}`;
+                result = ` Computer Chose ${computerSelection}, You chose ${playerSelection}.... ${computerSelection} beats ${playerSelection}... computer wins.. you lose suckers.. hahaha`;
+                document.getElementById('result').innerHTML = `${result}`;
+                computerPoint++;
+
             }
-            else if(computerSelection===playerSelection) //When both values are the same
+            else if (computerSelection === playerSelection) //When both values are the same
             {
-                result=` Computer Chose ${computerSelection}, You chose ${playerSelection}..... It's a Tie..... play again`;
-                 document.getElementById('result').innerHTML=`${result}`;
+                result = ` Computer Chose ${computerSelection}, You chose ${playerSelection}..... It's a Tie..... play again`;
+                document.getElementById('result').innerHTML = `${result}`;
             }
-            else if((computerSelection==='scissors' && playerSelection==='rock' || computerSelection==='rock' && playerSelection==='paper' || computerSelection==='paper' && playerSelection==='scissors')) //When the Player wins
+            else if ((computerSelection === 'scissors' && playerSelection === 'rock' || computerSelection === 'rock' && playerSelection === 'paper' || computerSelection === 'paper' && playerSelection === 'scissors')) //When the Player wins
             {
-                result=`Computer Chose ${computerSelection}, You chose ${playerSelection}.... ${playerSelection} beats ${computerSelection}... Yaaaaaayyyy!!! You win.... `;
-                 document.getElementById('result').innerHTML=`${result}`;
+                result = `Computer Chose ${computerSelection}, You chose ${playerSelection}.... ${playerSelection} beats ${computerSelection}... Yaaaaaayyyy!!! You win.... `;
+                document.getElementById('result').innerHTML = `${result}`;
+                playerPoint++;
+
             }
-            else if(playerSelection!=='rock' || playerSelection!=='paper' || playerSelection!=='scissors') //When invalid input is entered
+            else if (playerSelection !== 'rock' || playerSelection !== 'paper' || playerSelection !== 'scissors') //When invalid input is entered
             {
-                result=` Ivalid Input... Enter the correct action`;
-                 document.getElementById('result').innerHTML=`${result}`;
+                result = ` Invalid Input... Enter the correct action`;
+                document.getElementById('result').innerHTML = `${result}`;
             }
             else //When neither the computer nor the player wins
             {
-                result=`Computer Chose ${computerSelection}, You chose ${playerSelection}..... Time to go again...`;
-                 document.getElementById('result').innerHTML=`${result}`;
+                result = `Computer Chose ${computerSelection}, You chose ${playerSelection}..... Time to go again...`;
+                document.getElementById('result').innerHTML = `${result}`;
             }
+
+
         }
 
-        function game()
-        {
-            let rock=document.getElementById("rock").addEventListener('click', function (){ playGame('rock'); });
-            let paper=document.getElementById("paper").addEventListener('click', function (){ playGame('paper'); });
-            let scissors=document.getElementById("scissors").addEventListener('click', function (){ playGame('scissors'); });
+        function game() {
 
+            let rock = document.getElementById("rock").addEventListener('click', function () { playGame('rock'); });
+            let paper = document.getElementById("paper").addEventListener('click', function () { playGame('paper'); });
+            let scissors = document.getElementById("scissors").addEventListener('click', function () { playGame('scissors'); });
 
         }
     </script>
 </body>
+
 </html>
