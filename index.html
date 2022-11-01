@@ -17,7 +17,8 @@
         </div id="header">
 
         <div>
-            <h3 id="action">Choose your action</h4>
+            <h3 class="action">Choose your action</h3>
+            <h5 class="action">(first one to reach 5 points, wins the game)</h5>
         </div>
 
         <div id="buttons">
@@ -27,6 +28,14 @@
         </div>
 
         <p id="result"></p>
+
+        <div id="points">
+            <p id="computerPoint">Computer :    0 </p>
+            <p id="playerPoint">Player :    0 </p>
+        </div>
+
+        <p id="checkGame"> </p>
+
         <footer>
             Get to know more about the game, click <a href="https://www.wikihow.com/Play-Rock,-Paper,-Scissors">HERE</a>
         </footer>
@@ -35,6 +44,8 @@
 
     <script>
         let choice;
+        let playerPoint=0
+        let computerPoint=0; 
         game();
 
         function getComputerChoice() // function that creates the choice of computer
@@ -48,12 +59,13 @@
         {
             choice = ["rock", "paper", "scissors"];
             let computerSelection = getComputerChoice(choice);
-            let result;
             if (computerSelection === 'rock' && playerSelection === 'scissors' || computerSelection === 'paper' && playerSelection === 'rock' || computerSelection === 'scissors' && playerSelection === 'paper') //When computer wins
             {
                 result = ` Computer Chose ${computerSelection}, You chose ${playerSelection}.... ${computerSelection} beats ${playerSelection}... computer wins.. you lose.. Better luck next time ;-)`;
                 document.getElementById('result').innerHTML = `${result}`;
                 computerPoint++;
+                console.log(`computer Point is ${computerPoint}`);
+                document.getElementById('computerPoint').innerHTML = `Computer :     ${computerPoint}`;
 
             }
             else if (computerSelection === playerSelection) //When both values are the same
@@ -63,10 +75,11 @@
             }
             else if ((computerSelection === 'scissors' && playerSelection === 'rock' || computerSelection === 'rock' && playerSelection === 'paper' || computerSelection === 'paper' && playerSelection === 'scissors')) //When the Player wins
             {
-                result = `Computer Chose ${computerSelection}, You chose ${playerSelection}.... ${playerSelection} beats ${computerSelection}... Yaaaaaayyyy!!! You win.... `;
+                result = `Computer Chose ${computerSelection}, You chose ${playerSelection}.... ${playerSelection} beats ${computerSelection}... Yaaaaaayyyy!!! You win the round.... `;
                 document.getElementById('result').innerHTML = `${result}`;
                 playerPoint++;
-
+                console.log(`playerPoint is ${playerPoint}`);
+                document.getElementById('playerPoint').innerHTML = `Player :     ${playerPoint}`;
             }
             else if (playerSelection !== 'rock' || playerSelection !== 'paper' || playerSelection !== 'scissors') //When invalid input is entered
             {
@@ -78,8 +91,18 @@
                 result = `Computer Chose ${computerSelection}, You chose ${playerSelection}..... Time to go again...`;
                 document.getElementById('result').innerHTML = `${result}`;
             }
+            
+            if(computerPoint===5)
+            {
+                console.log("computer wins");
+                document.getElementById('checkGame').innerHTML="Computer Wins The Game!!!";
+            }
 
-
+            else if(playerPoint===5)
+            {
+                console.log("player wins");
+                document.getElementById('checkGame').innerHTML="Player Wins The Game!!!";
+            }
         }
 
         function game() {

@@ -27,12 +27,17 @@ h1#heading{
     background-color: black;
 }
 
-h3#action{
+.action{
     font-size: 40px;
-    margin-bottom: 80px;
+    margin-bottom: 20px;
     width: 100vw;
     text-align: center;
     font-family: 'Grandstander', cursive;
+}
+
+h5.action{
+    font-size: 20px;
+    margin-bottom: 80px;
 }
 
 div#buttons{
@@ -61,13 +66,6 @@ button:hover{
     transition: 0.7s;
 }
 
-p#result{
-    font-size: 30px;
-    font-family: 'Grandstander', cursive;
-    margin-bottom: 60px;
-    text-align: center;
-}
-
 button#scissors{
     background-image: url(./images/scissors2.png);
     background-position: center;
@@ -89,9 +87,42 @@ button#rock{
     background-size: 250px;
 }
 
+p#result{
+    font-size: 30px;
+    font-family: 'Grandstander', cursive;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+div#points{
+    width: 100vw;
+    display: flex;
+    justify-content: space-around;
+}
+
+p#playerPoint{
+    font-family: 'Grandstander', cursive;
+    font-size: 30px;
+    margin-bottom: 30px;
+}
+
+p#computerPoint{
+    font-family: 'Grandstander', cursive;
+    font-size: 30px;
+    margin-bottom: 30px;
+}
+
+p#checkGame{
+    font-family: 'Grandstander', cursive;
+    font-size: 25px;
+    margin-bottom: 20px;
+}
+
 footer{
     font-family: 'Grandstander', cursive;
     font-size: 20px;
+    width: 100vw;
+    text-align: center;
 }
 
 @media only screen and (max-width: 800px) {
@@ -99,4 +130,12 @@ footer{
         flex-direction: column;
         align-items: center;
     }
-  }
+
+    p#result{
+        font-size: 25px;
+    }
+
+    div#point{
+        flex-direction: column;
+    }
+}
