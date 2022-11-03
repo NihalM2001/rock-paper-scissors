@@ -6,7 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="./style.css">
-    <title>Document</title>
+    <title>Rock, Paper & Scissors</title>
 </head>
 
 <body>
@@ -95,23 +95,37 @@
             if(computerPoint===5)
             {
                 console.log("computer wins");
-                document.getElementById('checkGame').innerHTML="Computer Wins The Game!!!";
-            }
+                document.getElementById('checkGame').innerHTML="Computer Wins The Game!!!... Click on the actions to restart the game";
 
+                //reset();
+            }
             else if(playerPoint===5)
             {
                 console.log("player wins");
-                document.getElementById('checkGame').innerHTML="Player Wins The Game!!!";
+                document.getElementById('checkGame').innerHTML="Player Wins The Game!!!... Click on the actions to restart the game";
+                //reset();
             }
         }
 
-        function game() {
-
+        function game() 
+         {
             let rock = document.getElementById("rock").addEventListener('click', function () { playGame('rock'); });
             let paper = document.getElementById("paper").addEventListener('click', function () { playGame('paper'); });
             let scissors = document.getElementById("scissors").addEventListener('click', function () { playGame('scissors'); });
 
         }
+
+        function reset()
+        {  
+            //playerPoint=0;
+            computerPoint=0;
+            document.getElementById('result').innerHTML="";
+            document.getElementById('computerPoint').innerHTML="";
+            document.getElementById('playerPoint').innerHTML="";
+            //document.getElementById('checkGame').innerHTML="";
+            game();
+        }
+
     </script>
 </body>
 
