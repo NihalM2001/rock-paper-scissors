@@ -95,14 +95,14 @@
             if(computerPoint===5)
             {
                 console.log("computer wins");
-                document.getElementById('checkGame').innerHTML="Computer Wins The Game!!!... Click on the actions to restart the game";
+                document.getElementById('checkGame').innerHTML="Computer Wins The Game!!!...";
 
                 //reset();
             }
             else if(playerPoint===5)
             {
                 console.log("player wins");
-                document.getElementById('checkGame').innerHTML="Player Wins The Game!!!... Click on the actions to restart the game";
+                document.getElementById('checkGame').innerHTML="Player Wins The Game!!!...";
                 //reset();
             }
         }
@@ -117,12 +117,12 @@
 
         function reset()
         {  
-            //playerPoint=0;
+            playerPoint=0;
             computerPoint=0;
             document.getElementById('result').innerHTML="";
             document.getElementById('computerPoint').innerHTML="";
             document.getElementById('playerPoint').innerHTML="";
-            //document.getElementById('checkGame').innerHTML="";
+            document.getElementById('checkGame').innerHTML="";
             game();
         }
 
